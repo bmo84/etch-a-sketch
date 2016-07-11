@@ -1,0 +1,42 @@
+
+
+.nav {
+  font-family: monospace;
+  margin-top: 0;
+  text-align: center;
+}
+
+.container-btn {
+  margin-bottom: 15px;
+  text-align: center;
+  
+}
+
+.set-grid,
+.set-color,
+.clear-grid {
+  border-radius: 3px;
+  border-style: none;
+  font-family: monospace;
+  padding: 5px 5px;
+}
+
+.set-grid:hover,
+.set-color:hover,
+.clear-grid:hover {
+  box-shadow: 0 0 2px 2px #000000;
+}
+
+.container-grid {
+  display: flex;
+  flex-wrap: wrap;
+  height: 960px;
+  /*outline: #3366ff solid 2px;*/
+  width: 960px;
+  margin: 0 auto;
+  
+}
+
+.wrapper {
+  width: 100%;
+}
