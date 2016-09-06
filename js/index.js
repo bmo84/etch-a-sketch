@@ -1,6 +1,6 @@
 // Author: Brandon Martinez
-// Last Modified: 7/10/2016
-// Description: Etcha a sketch program using javascript and jQuery
+// Last Modified: 7/14/2016
+// Description: Etcha a sketch program using javascript
 
 $(document).ready(function() {
 
@@ -9,7 +9,7 @@ $(document).ready(function() {
       // first make sure grid is clear
       $(".container-grid").empty();
 
-      var gridSize = 960; //size of grid
+      var gridSize = 400; //size of grid
       var blockSize = (gridSize / size) - 2; //account for added padding from borders
 
       for (var i = size; i > 0; i--) {
@@ -18,45 +18,48 @@ $(document).ready(function() {
 
           $('.container-grid').append('<div class="grid"></div>');
           $('.container-grid div:last-child').css({
-            /*"float": "left",*/
-            "border": "#000000 solid thin",
+            
+            "border": "solid thin #e0e0e0",
+              
             "height": blockSize,
             "width": blockSize
           });
         } //end inner for
-        $('.container-grid').append('<div style="clear: left;"</div>');
+
       } // end outer for
     } // end DrawGrid
-  DrawGrid(16); // create default grid
 
   // handle select grid button
   $('.set-grid').click(function() {
 
     //get size
-    var input = prompt("Enter grid size: ");
+    var input = prompt("Enter the number of blocks to generate: ");
     // clear grid
     $('.container-grid').empty();
     DrawGrid(input); // draw grid
   }); // end click function
 
-  //handle color selector
-  $('select[name=dropdown]').change(function(){
-    if ($(this).val() == 0 || $(this).val() == 1){
-      $('.container-grid').delegate("div", "mouseenter", function(){
+  // handle color selector
+  $('select[name=dropdown]').change(function() {
+    if ($(this).val() == 0) {
+      $('.container-grid').delegate("div", "mouseenter", function() {
+        $(this).css("background-color", "#ffebee");
+      });
+    }
+    else if ($(this).val() == 1) {
+      $('.container-grid').delegate("div", "mouseenter", function() {
         $(this).css("background-color", "#000000");
       });
-    }
-    else if ($(this).val() == 2){
-      $('.container-grid').delegate("div", "mouseenter", function(){
+      
+    } else if ($(this).val() == 2) {
+      $('.container-grid').delegate("div", "mouseenter", function() {
         $(this).css("background-color", "#00ff00");
       });
-    }
-    else if ($(this).val() == 3){
-      $('.container-grid').delegate("div", "mouseenter", function(){
+    } else if ($(this).val() == 3) {
+      $('.container-grid').delegate("div", "mouseenter", function() {
         $(this).css("background-color", "#0000ff");
       });
-    }
-    else {
+    } else if ($(this).val() == 4) {
       $('.container-grid').delegate("div", "mouseenter", function() {
         var newColor = '#' + (0x1000000 + (Math.random()) * 0xffffff).toString(16).substr(1, 6);
         $(this).css("background-color", newColor);
@@ -64,10 +67,17 @@ $(document).ready(function() {
     } // end if else
   }); // end color selector function
 
-
-  //clear grid
+  // clear grid function
   $(".clear-grid").click(function() {
-    $(".container-grid div").css("background-color", "white");
-  });
+    $(".container-grid div").css("background-color", "#e0e0e0");
+  }); // end clear function
+
+  // draw default grid size
+  DrawGrid(16);
+
+  // default color
+  $('.container-grid').delegate("div", "mouseenter", function() {
+    $(this).css("background-color", "#e0e0e0");
+  }); // end default color
 
 }); // end document.ready function

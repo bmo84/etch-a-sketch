@@ -1,5 +1,6 @@
-
-
+body{
+  background-color: #e0e0e0;
+}
 .nav {
   font-family: monospace;
   margin-top: 0;
@@ -9,16 +10,16 @@
 .container-btn {
   margin-bottom: 15px;
   text-align: center;
-  
 }
 
 .set-grid,
 .set-color,
 .clear-grid {
   border-radius: 3px;
-  border-style: none;
   font-family: monospace;
+  font-size: 12px;
   padding: 5px 5px;
+  width: 96px;
 }
 
 .set-grid:hover,
@@ -30,13 +31,21 @@
 .container-grid {
   display: flex;
   flex-wrap: wrap;
-  height: 960px;
-  /*outline: #3366ff solid 2px;*/
-  width: 960px;
+  height: 400px;
+  width: 400px;
   margin: 0 auto;
-  
+  padding: 20px;
 }
 
+.grid{
+  background-color: #e0e0e0;
+}
 .wrapper {
-  width: 100%;
+  width: 440px;
+  height: 440px;
+  margin: 0 auto;
+  border-radius: 6px;
+  box-shadow: -1px 1px 5px 6px #b71c1c;
+  background-color: #f44336;
+  margin-bottom: 30px;
 }
