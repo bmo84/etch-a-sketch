@@ -1,46 +1,62 @@
-// Author: Brandon Martinez
-// Last Modified: 7/14/2016
-// Description: Etcha a sketch program using javascript
+/*********************************************
+*Author: Brandon Martinez
+* Last Modified: 7/14/2016
+* Description: Etcha a sketch  using JQuery and *Javascript
+***********************************************/
 
-$(document).ready(function() {
 
-  // draw grid of div's based on user input
-  var DrawGrid = function(size) {
+  /********************************************
+  *Function: drawGrid
+  *Purpose: Calculates grid size determined by 
+  *the user
+  *********************************************/
+  var drawGrid = function(size) {
       // first make sure grid is clear
       $(".container-grid").empty();
+      //pixel size of grid container
+      var gridSize = 384; 
+      //calculate dimensions of each block
+      var blockSize = (gridSize / size);
 
-      var gridSize = 400; //size of grid
-      var blockSize = (gridSize / size) - 2; //account for added padding from borders
-
+      //for loops appends the grid blocks one row at a time
       for (var i = size; i > 0; i--) {
 
         for (var j = size; j > 0; j--) {
 
           $('.container-grid').append('<div class="grid"></div>');
           $('.container-grid div:last-child').css({
-            
-            "border": "solid thin #e0e0e0",
-              
             "height": blockSize,
             "width": blockSize
           });
         } //end inner for
 
       } // end outer for
-    } // end DrawGrid
-
-  // handle select grid button
-  $('.set-grid').click(function() {
-
-    //get size
-    var input = prompt("Enter the number of blocks to generate: ");
-    // clear grid
-    $('.container-grid').empty();
-    DrawGrid(input); // draw grid
-  }); // end click function
-
+    } // end drawGrid function
+  
+  /********************************************
+  *Function: JQuery change function
+  *Purpose: When the user makes a selection, call 
+  * drawGrid with the approprate value
+  *********************************************/
+  $('select[name=grid-dropdown]').change(function(){
+    if ($(this).val() == 16){
+      drawGrid(16);
+    }
+    else if($(this).val() == 32){
+      drawGrid(32);
+    }
+    else if($(this).val() == 64){
+      drawGrid(64);
+    }
+  });
+  
+   /********************************************
+  *Function: JQuery change function (color selector)
+  *Purpose: When the user selects a color 
+  * change the color of the hover effect
+  *********************************************/
   // handle color selector
-  $('select[name=dropdown]').change(function() {
+  $('select[name=color-dropdown]').change(function() {
     if ($(this).val() == 0) {
       $('.container-grid').delegate("div", "mouseenter", function() {
         $(this).css("background-color", "#ffebee");
@@ -48,7 +64,7 @@ $(document).ready(function() {
     }
     else if ($(this).val() == 1) {
       $('.container-grid').delegate("div", "mouseenter", function() {
-        $(this).css("background-color", "#000000");
+        $(this).css("background-color", "#424242");
       });
       
     } else if ($(this).val() == 2) {
@@ -67,17 +83,23 @@ $(document).ready(function() {
     } // end if else
   }); // end color selector function
 
-  // clear grid function
+   /********************************************
+  *Function: Clear Grid Button Event handler
+  *Purpose: Clears the grids colors to default
+  *********************************************/
   $(".clear-grid").click(function() {
     $(".container-grid div").css("background-color", "#e0e0e0");
-  }); // end clear function
+  }); // end clear grid function
 
+   /***************************************
+   *Function: Main
+   *Purpose: When the browser has finished loading
+   * Call a default grid size and color
+   ****************************************/
   // draw default grid size
-  DrawGrid(16);
+  drawGrid(16);
 
   // default color
   $('.container-grid').delegate("div", "mouseenter", function() {
-    $(this).css("background-color", "#e0e0e0");
+    $(this).css("background-color", "#000000");
   }); // end default color
-
-}); // end document.ready function

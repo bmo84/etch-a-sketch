@@ -1,10 +1,5 @@
-body{
-  background-color: #e0e0e0;
-}
-.nav {
-  font-family: monospace;
-  margin-top: 0;
-  text-align: center;
+body {
+  background-color: #ffffff;
 }
 
 .container-btn {
@@ -15,11 +10,9 @@ body{
 .set-grid,
 .set-color,
 .clear-grid {
-  border-radius: 3px;
-  font-family: monospace;
   font-size: 12px;
-  padding: 5px 5px;
-  width: 96px;
+  padding: 2px 0px;
+  width: 100px;
 }
 
 .set-grid:hover,
@@ -28,24 +21,70 @@ body{
   box-shadow: 0 0 2px 2px #000000;
 }
 
-.container-grid {
-  display: flex;
-  flex-wrap: wrap;
-  height: 400px;
-  width: 400px;
-  margin: 0 auto;
-  padding: 20px;
+.logo {
+  text-align: center;
+  margin: 5px;
+  margin-bottom: 10px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 20px;
+  color: #FFD700;
 }
 
-.grid{
-  background-color: #e0e0e0;
-}
 .wrapper {
-  width: 440px;
-  height: 440px;
+  width: 484px;
+  height: 484px;
   margin: 0 auto;
   border-radius: 6px;
-  box-shadow: -1px 1px 5px 6px #b71c1c;
-  background-color: #f44336;
-  margin-bottom: 30px;
+  background-color: #b71c1c;
+  overflow: none;
+}
+
+.container-grid {
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  height: 384px;
+  width: 384px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  outline-style: solid;
+  outline-color: #e0e0e0;
+  box-shadow: 1px 1px 6px 8px #e0e0e0;
+}
+
+.grid {
+  background-color: #e0e0e0;
+}
+
+.menu-wrapper {
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-left: 20px;
+  width: 100%;
+}
+
+.right-knob {
+  float: left;
+  background-color: white;
+  border: solid thin #000000;
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+}
+
+.left-knob {
+  float: left;
+  right: 5px;
+  background-color: white;
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+  border: solid thin #000000;
+}
+
+.menu {
+  float: left;
+  width: 384px;
+  height: 100px;
 }
